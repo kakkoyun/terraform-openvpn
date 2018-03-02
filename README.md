@@ -1,21 +1,22 @@
 # Terraform OpenVPN
 
-Terraform declarations for Single node OpenVPN infrastructure
+Terraform declarations for Single node OpenVPN infrastructure.
+You can have your pay as you go personal VPN in minutes! And you can destroy your environment whenever you want!
 
 ### Prerequisites
 
-Terraform v0.11.3
+`Terraform v0.11.3`
 
 Check your version.
 
 ```
-terraform -v
+$ terraform -v
 
 ```
 
 ### Installing
 
-Install dependencies using `brew`.
+Install dependencies using [brew](https://brew.sh/).
 
 ```
 brew install terraform
@@ -23,23 +24,52 @@ brew install terraform
 
 ## Usage
 
-To see how to use:
+Make sure you provided AWS credentials to your environment.
 
-```
-terraform plan
-```
-
-If everything is ok,
-
-```
-terraform apply
+You can simply export:
+```Bash
+export AWS_ACCESS_KEY_ID=(your access key id)
+export AWS_SECRET_ACCESS_KEY=(your secret access key)
 ```
 
-TODO: Screenshot
+Or, you can use something like [awsudo](https://github.com/makethunder/awsudo) if you are using multiple accounts in your system:
+```Bash
+$ awsudo -u personal env | grep AWS
+AWS_ACCESS_KEY_ID='<jadajada>'
+AWS_SECRET_ACCESS_KEY='<blablabla>'
+```
 
-1. Copy the link from console and download your client configuration.
-1. Copy the IP of your server from console.
-1. Use these with an OpenVPN client. For example, you can use [this](https://openvpn.net/index.php/access-server/docs/admin-guides/183-how-to-connect-to-access-server-from-a-mac.html) for Mac OS X.
+Then plan your changes:
+```Bash
+$ terraform plan
+```
+If everything is ok, you should see something like:
+
+![after_plan](assets/after_plan.png)
+
+If everything looks good, you can apply your plan, it will take couple of minutes:
+
+```Bash
+$ terraform apply
+```
+
+If everything is ok, you should see something like:
+
+![after_apply](assets/after_apply.png)
+
+Booom! You did it!
+
+### Client Setup
+
+Use generated file with an OpenVPN client. For example, you can use [Tunnelblick](https://openvpn.net/index.php/access-server/docs/admin-guides/183-how-to-connect-to-access-server-from-a-mac.html) for Mac OS X.
+
+If Tunnelblick is installed, just go to your console:
+
+```Bash
+$ open awesome-personal-vpn.ovpn
+```
+
+Your VPN is ready! Have fun!
 
 ## Built With
 
