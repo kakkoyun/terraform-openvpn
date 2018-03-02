@@ -19,7 +19,7 @@ $ terraform -v
 Install dependencies using [brew](https://brew.sh/).
 
 ```
-brew install terraform
+$ brew install terraform
 ```
 
 ## Usage
