@@ -16,7 +16,7 @@ $ terraform -v
 
 ### Installing
 
-Install dependencies using [brew](https://brew.sh/).
+Install `Terrafomr`, you can use [brew](https://brew.sh/) if you're on Mac OS X.
 
 ```
 $ brew install terraform
