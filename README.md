@@ -39,6 +39,13 @@ AWS_ACCESS_KEY_ID='<jadajada>'
 AWS_SECRET_ACCESS_KEY='<blablabla>'
 ```
 
+To provision remote machine, `Terraform` needs to access that machine, for that you have to add your SSH key to your local `ssh-agent`, so `Terraform` can find:
+
+```Bash
+$ ssd-add # Adds default ssh key
+$ ssd-add ~/.ssh/my-jada-jada-key # Adds a specific ssh key
+```
+
 Then plan your changes:
 ```Bash
 $ terraform plan
@@ -67,6 +74,20 @@ If Tunnelblick is installed, just go to your console:
 
 ```Bash
 $ open awesome-personal-vpn.ovpn
+```
+
+### Available Parameters
+
+If you want to configure your VPN, you can pass following parameters.
+
+```Bash
+$ terraform apply \
+   -var "aws_region=JADA" \
+   -var "ssh_remote_user=JADA"
+   -var "ssh_public_key_path=JADA" \
+   -var "vpn_data=JADA" \
+   -var "vpn_port=1234" \
+   -var "vpn_client_name=JADA"
 ```
 
 Your VPN is ready! Have fun!
