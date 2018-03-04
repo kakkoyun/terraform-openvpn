@@ -3,6 +3,8 @@
 Terraform declarations for Single node OpenVPN infrastructure.
 You can have your pay as you go personal VPN in minutes! And you can destroy your environment whenever you want!
 
+[![asciicast](https://asciinema.org/a/I7rlhVKvHjf4KuNWYjCzpc0ir.png)](https://asciinema.org/a/I7rlhVKvHjf4KuNWYjCzpc0ir?autoplay=1)
+
 ### Prerequisites
 
 `Terraform v0.11.3`
@@ -68,9 +70,20 @@ Booom! You did it!
 
 ### Client Setup
 
-Use generated file with an OpenVPN client. For example, you can use [Tunnelblick](https://openvpn.net/index.php/access-server/docs/admin-guides/183-how-to-connect-to-access-server-from-a-mac.html) for Mac OS X.
+Use generated file with an OpenVPN client. In OS X, you can install one with `brew`.
+```Bash
+$ brew install openvpn
+```
 
-If Tunnelblick is installed, just go to your console:
+Then,
+
+```Bash
+$ sudo openvpn --config awesome-personal-vpn.ovpn
+$ sudo openvpn --config awesome-personal-vpn.ovpn --deaemon # as daemon
+$ sudo -b openvpn --config awesome-personal-vpn.ovpn # run in background
+```
+
+If you want a GUI client, you can use [Tunnelblick](https://openvpn.net/index.php/access-server/docs/admin-guides/183-how-to-connect-to-access-server-from-a-mac.html) for Mac OS X, with Tunnelblick is installed, just go to your console:
 
 ```Bash
 $ open awesome-personal-vpn.ovpn
